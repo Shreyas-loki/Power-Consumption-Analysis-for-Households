@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Household Power</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" text="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet" text="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Hind:300" rel="stylesheet" text="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" text="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    
+    <style>
+    body {
+      background-color: LightSeaGreen;
+    }
+    
+    h1 {
+      color: DarkBlue;
+      text-align: center;
+    }
+    
+    h2 {
+      color: Maroon;
+    }
+    input {
+      text-align: center;
+    }
+    
+    </style>
+</head>
+    
+<body>
+    <div class="login">
+        <h1>Household Power Consumption</h1>
+        
+        <form action="{{ url_for('y_predict')}}" method="post">
+        <br>
+        <center><input type="text" name="Global active power" placeholder="Global active power" required="required"/>
+        <br>    
+        <br>
+        <input type="text" name="Global reactive power" placeholder="Global reactive power" required="required"/>
+        <br>
+        <br>
+        <input type="text" name="Voltage" placeholder="Voltage" required="required"/>
+        <br>
+        <br>
+        <input type="text" name="Global_intensity" placeholder="Global_intensity" required="required"/>
+        <br>
+        <br>
+        <input type="text" name="Sub_metering_1" placeholder="Sub_metering_1" required="required"/>
+        <br>
+        <br>
+        <input type="text" name="Sub_metering_2" placeholder="Sub_metering_2" required="required"/>
+        <br>
+        <br>
+        <input type="text" name="Sub_metering_3" placeholder="Sub_metering_3" required="required"/>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        
+        </form>
+        
+    <br>
+    <br>
+    
+    {{ Prediction_text }}
+    
+    </div>
+</body>
+</html>

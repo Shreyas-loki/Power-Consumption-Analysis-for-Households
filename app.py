@@ -13,20 +13,12 @@ def y_predict():
     For rendering results on HTML GUI
     """
     x_test = [[float(x) for x in request.form.values()]]
-    if(x_test[0][0] == 0):
-        x_test[0][0] = 0
-        x_test[0].insert(1,0)
-    elif(x_test[0][0] == 1):
-        x_test[0][0] = 1
-        x_test[0].insert(1,0)
-    else:
-        x_test[0][0] = 0
-        x_test[0].insert(1,1)
+    final_features = [np.array(x_text)]
         
-    prediction = model.predict(x_test)
+    prediction = model.predict(final_features)
     output = prediction[0]
     
-    return render_template('index.html', prediction_text="Power: {}".format(output))
+    return render_template('index.html', prediction_text="Power consumed: {} kWh".format(output))
 
 
 if __name__ == "__main__":
